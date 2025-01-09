@@ -17,7 +17,7 @@
 class FSMPage: public Page
 {
     public:
-        FSMPage(unsigned int relOid, ForkType fork, PageNumber pageNumber): Page(relOid, fork, pageNumber) {}
+        FSMPage(unsigned int relOid, PageNumber pageNumber): Page(relOid, FSM_FORK, pageNumber) {}
 
         /* 
          * Вывод сырой информации о странице 

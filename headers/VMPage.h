@@ -14,7 +14,7 @@
 class VMPage: public Page
 {
     public:
-        VMPage(unsigned int relOid, ForkType fork, PageNumber pageNumber): Page(relOid, fork, pageNumber) {}
+        VMPage(unsigned int relOid, PageNumber pageNumber): Page(relOid, VM_FORK, pageNumber) {}
 
         void printRawData(FILE *output);
 };

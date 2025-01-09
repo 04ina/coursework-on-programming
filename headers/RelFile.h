@@ -22,6 +22,7 @@ typedef enum ForkType {
     FSM_FORK,
     VM_FORK,
     INIT_FORK,
+    INVALID_FORK,
 } ForkType;
 
 /*
