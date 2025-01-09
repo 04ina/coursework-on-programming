@@ -32,9 +32,7 @@ class PageHandler
         /*
          * Вывод сырой информации о сырых страницах, находящихся в VM и FSM слоях 
          */
-        bool printRawFSMPage(unsigned int relOid, ForkType fork, PageNumber pageNumber);
-
-        bool printRawVMPage(unsigned int relOid, ForkType fork, PageNumber pageNumber);
+        bool PageHandler::printRawPage(unsigned int relOid, ForkType fork, PageNumber pageNumber)
 };
 
 

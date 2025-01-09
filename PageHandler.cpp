@@ -15,24 +15,7 @@ void PageHandler::setInput(FILE *input)
     this->input = input;
 }
 
-bool PageHandler::printRawFSMPage(unsigned int relOid, ForkType fork, PageNumber pageNumber)
-{
-    if (this->output == NULL)
-    {
-        fprintf(stdout, "The page_header output is not specified");
-        return false;
-    }
-
-    FILE *output = this->output;
-    
-    FSMPage fsmPage = FSMPage(relOid, fork, pageNumber);
-
-    fsmPage.printRawData(output);
-
-    return true;
-}
-
-bool PageHandler::printRawVMPage(unsigned int relOid, ForkType fork, PageNumber pageNumber)
+bool PageHandler::printRawPage(unsigned int relOid, ForkType fork, PageNumber pageNumber)
 {
     if (this->output == NULL)
     {
@@ -42,9 +25,17 @@ bool PageHandler::printRawVMPage(unsigned int relOid, ForkType fork, PageNumber 
 
     FILE *output = this->output;
 
-    VMPage vmPage = VMPage(relOid, fork, pageNumber);
-    
-    vmPage.printRawData(output);
+    switch (fork) 
+    {
+        case FSM_FORK:
+            FSMPage fsmPage = FSMPage(relOid, pageNumber);
+            fsmPage.printRawData(output);
+            break;
+        case VM_FORK:
+            VMPage vmPage = VMPage(relOid, pageNumber);
+            vmPage.printRawData(output);
+            break;
+    }   
 
     return true;
 }
