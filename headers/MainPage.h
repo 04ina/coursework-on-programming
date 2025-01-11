@@ -1,12 +1,12 @@
 /*------------------------------------------------------------------------- 
  *
- * FSMPage.h
+ * MainPage.h
  * 
  *------------------------------------------------------------------------- 
  */
 
-#ifndef FSMPAGE_H
-#define FSMPAGE_H
+#ifndef MAINPAGE_H
+#define MAINPAGE_H
 
 #include "Page.h"
 #include "stdlib.h"
@@ -14,10 +14,10 @@
 /*
  * Класс, представляющий собой страницу соответствующего слоя 
  */
-class FSMPage: public Page
+class MainPage: public Page
 {
     public:
-        FSMPage(unsigned int relOid, PageNumber pageNumber): Page(relOid, FSM_FORK, pageNumber) {}
+        MainPage(unsigned int relOid, PageNumber pageNumber): Page(relOid, MAIN_FORK, pageNumber) {}
 
         /* 
          * Вывод сырой информации о странице 
@@ -25,4 +25,4 @@ class FSMPage: public Page
         void printRawData();
 };
 
-#endif  /* FSMPAGE_H*/
+#endif  

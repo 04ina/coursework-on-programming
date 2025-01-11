@@ -8,6 +8,8 @@
 #ifndef PAGE_HEADER_H
 #define PAGE_HEADER_H
 
+#include "stdio.h"
+
 /*
  *  pd_lsn	PageXLogRecPtr	8 байт	LSN: Следующий байт после последнего байта записи xlog для последнего изменения на этой странице
  *  pd_checksum	uint16	2 байта	Контрольная сумма страницы
@@ -42,6 +44,33 @@ class PageHeader
 {
     public:
         PageHeaderData data;
+
+        void 
+        print_all(void);
+
+        void
+        print_pg_lsn(void);
+
+        void
+        print_pd_checksum(void);
+
+        void
+        print_pg_flags(void);
+
+        void
+        print_pd_lower(void);
+
+        void
+        print_pd_upper(void);
+
+        void
+        print_pd_special(void);
+
+        void
+        print_pd_pagesize_version(void);
+
+        void
+        print_pd_prune_xid(void);
 };
 
 

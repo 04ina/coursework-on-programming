@@ -1,7 +1,7 @@
-#include "headers/FSMPage.h"
+#include "headers/InitPage.h"
 #include <iostream> 
 
-void FSMPage::printRawData()
+void InitPage::printRawData()
 {
     char *data = this->rawContent->data;
 
